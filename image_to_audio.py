@@ -10,7 +10,7 @@ wl = None
 image = "test1.png"
 out_wav = "test1.wav"
 
-def img_to_audio(image, out_wav, sr, hl, wl)
+def img_to_audio(image, out_wav, sr, hl, wl):
     basepath = path.dirname(__file__)
     filepath = path.abspath(path.join(basepath, 'images', image))
 
@@ -26,7 +26,8 @@ def img_to_audio(image, out_wav, sr, hl, wl)
 
     print(f"Output audio with {len(snd)} samples and a sample rate of {sr} Hz")
 
-    librosa.output.write_wav(f"audio/{out_wav}", snd, sr)
+    filepath = path.abspath(path.join(basepath, 'audio', out_wav))
+    librosa.output.write_wav(out_wav, snd, sr)
 
 
 img_to_audio(image, out_wav, sr, hl, wl)
